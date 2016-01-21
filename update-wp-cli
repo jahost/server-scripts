@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /root/
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x /root/wp-cli.phar
+mv /root/wp-cli.phar /usr/local/bin/wp
