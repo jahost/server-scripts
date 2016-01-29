@@ -1,0 +1,13 @@
+chmod 700 /root/server-scripts/disable-passwords
+chmod 700 /root/server-scripts/update-wp-cli
+chmod 700 /root/server-scripts/init-scripts
+
+crontab << EOT
+MAILTO="jonas"
+# m    h     dom   mon   dow   command
+0      5      *     *     4     /root/server-scripts/update-wp-cli > /dev/null
+10     6      *     *     *     /root/server-scripts/disable-passwords > /dev/null
+10     2      *     *     *     /root/server-scripts/init-scripts > /dev/null
+30     4,21   *     *     *     /usr/bin/php7.0-sp /root/server-scripts/wp-update.php > /dev/null 2>&1
+*/5    *      *     *     *     /usr/bin/php7.0-sp /root/server-scripts/wp-cron.php > /dev/null 2>&1
+EOT
