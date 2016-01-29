@@ -3,7 +3,7 @@ chmod 700 /root/server-scripts/update-wp-cli
 chmod 700 /root/server-scripts/init-scripts
 
 crontab << EOT
-MAILTO="jonas"
+MAILTO=""
 # m    h     dom   mon   dow   command
 0      5      *     *     4     /root/server-scripts/update-wp-cli > /dev/null
 10     6      *     *     *     /root/server-scripts/disable-passwords > /dev/null
